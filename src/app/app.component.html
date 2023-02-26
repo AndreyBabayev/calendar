@@ -1,50 +1,68 @@
 <div class="body">
   <header>
-  <h1>Calendar</h1>
-</header>
-<button mat-raised-button (click)="saveDate()">Greate</button>
-  <mat-card class="demo-inline-calendar-card">
-    <mat-calendar
-      (selectedChange)="changeCalend()"
-      [(selected)]="selected"
-    ></mat-calendar>
-  </mat-card>
-  <p>Selected date: {{ selected }}</p>
+    <h1>Calendar</h1>
+    </header>
+  <div class="calendar-block">
+       <mat-card class="demo-inline-calendar-card">
+      <mat-calendar
+        (selectedChange)="changeCalend($event)"
+        [(selected)]="selected"
+      ></mat-calendar>
+      <p>Selected date: {{ selected | date: "MM/dd/yyyy" }}</p>
+    </mat-card>
+    <div *ngIf="openWindowEvent">
+      <div class="dater">
+        <form [formGroup]="dataForm">
+          <div class="form-group">
+          <input type="text" class="form-control" placeholder="Add title ..." formControlName="addTitle">
+          <div></div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Add description ..."formControlName="addDisc">
+            <div></div>
+            </div>
+                <div class="form-group">
+                <div class="ngx-timepicker-field-example">
+                  <ngx-timepicker-field [min]="'03:15 am'" (timeChanged)="onStartTime($event)"></ngx-timepicker-field>
+                </div>
+                <div class="ngx-timepicker-field-example">
+                  <ngx-timepicker-field [max]="'06:18 pm'"(timeChanged)="onEndTime($event)"></ngx-timepicker-field>
+                </div>
+                <div></div>
+                </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button (click)="saveDate()">Сreate</button>
+
   <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
     <ng-container>
       <div *ngFor="let data of arrayData; let i = index" cdkDrag>
         <mat-card class="example-card">
+          <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ data.selected}}</mat-card-title>
+          <div class="ngx-timepicker-field-example">
+           Start time:{{data.startTime}}
+            End time:{{data.endTime}}
+          </div>
+        </mat-card-header>
           <div class="add">
             <input
-              [(ngModel)]="titleEvent"
+              [(ngModel)]="data.addTitle"
               type="text"
               placeholder="Add title ..."
             />
           </div>
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ data.value }}</mat-card-title>
-            <div class="ngx-timepicker-field-example">
-              <ngx-timepicker-field [min]="'03:15 am'"></ngx-timepicker-field>
-            </div>
-            <div class="ngx-timepicker-field-example">
-              <ngx-timepicker-field [max]="'06:18 pm'"></ngx-timepicker-field>
-            </div>
-          </mat-card-header>
-          <div>
+         <div>
             <textarea
-              [(ngModel)]="discriptionEvent"
+              [(ngModel)]="data.addDisc"
               cols="100"
-              rows="5"
-              placeholder=" Add description or attachments ..."
+              rows="3"
+              placeholder=" Add description ..."
             ></textarea>
           </div>
-          <mat-card-subtitle>{{ data.titleEvent }}</mat-card-subtitle>
-          <mat-card-content>
-            <p>
-              {{ data.discriptionEvent }}
-            </p>
-          </mat-card-content>
           <mat-card-actions>
             <button mat-flat-button (click)="deleteCard(i)">Delete</button>
           </mat-card-actions>
@@ -53,9 +71,9 @@
     </ng-container>
   </div>
   <footer>
-    <p class="text-center">
+    <div class="text-center">
       Powered by:
       <a href="https://github.com/AndreyBabayev">Andriy Babayev</a>
-    </p>
+    </div>
   </footer>
 </div>

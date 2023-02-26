@@ -6,9 +6,10 @@
   font-family: 'Lato', sans-serif;
   width: 1020px;
   height: auto;
-  border: 1px solid gray;
+  border: 1px solid #4a94a1;
   position: relative;
   overflow-x: hidden;
+
 }
 header {
   background-color: #3f7279;
@@ -26,9 +27,10 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-width: 100%;
-  height: 76px;
   justify-content: center;
+  width: 100%;
+  height: 95px;
+  margin-top: 20px;
 }
 .mat-raised-button {
   color: white;
@@ -39,7 +41,7 @@ footer {
   font-size: 14px;
   justify-content: center;
   border: none;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 95px;
  }
 p{
@@ -48,63 +50,70 @@ p{
 }
 .demo-inline-calendar-card {
 
-      width: 400px;
-      margin-left: 30px;
-      margin-top: 10px;
-      border-radius: 5px;
-      
+  width: 400px;
+  margin-left: 30px;
+  margin-top: 30px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 35px 100px -35px rgba(0,0,0,0.4);
+    
   }
   .example-card {
     position: relative;
     background: #f9f9f9;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
     overflow: hidden;
     box-shadow: 0px 35px 100px -35px rgba(0,0,0,0.4);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 800px;
-    height: 300px;
+    width: 930px;
+    height: 200px;
     border-radius: 10px;
   }
    .example-header-image {
      background-size: cover;
   }
-  .ngx-timepicker-field-example{
-
+  ::ng-deep.ngx-timepicker{
+    display: flex;
+    align-items: center;
+    height: 60px !important;
+    width: 240px !important;
+    margin-left: 80px;
+    margin-top: 5px;
   }
   ::placeholder{
     color:white;
     font-size:18px;
   }
   input{
-margin-top: 30px;
-margin-left: 80px;  
+    margin-top: 24px;
+    margin-left: 50px;  
     position: center;
-    width: 500px;
     color: #f9f9f9;
     background-color: #3f7279;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
   }
   .add{
-    width: 800px;
-    height: 80px;
+     width: 800px;
+    height: 50px;
     background-color: #3f7279;
   }  
     textarea{
-    width: 800px;
     background-color: #3f7279;
+    width: 800px;
     border: none;
     color:white;
     font-size: 16px;
-  }
+    margin-top: 10px;
+      }
   .mat-flat-button{
     color: white;
     width: 300px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #4a94a1;
     font-size: 14px;
     border: none;
@@ -114,8 +123,34 @@ margin-left: 80px;
     background-color: azure;
     border-radius: 12px;
     width: auto;
-  
+    }
+ 
+  [href]{
+    color:#f9f9f9;
+    }
+   .text-center{
+   
+   }
+  .dater{
+    width: 500px;
+    height: 480px;
+    background-color: #3f7279;
+    overflow: hidden;
+    box-shadow: 0px 35px 100px -35px rgba(0,0,0,0.4);
+    margin-top: 30px;
+    margin-left: 30px;
+    border-radius: 5px !important;
+  }
+  .calendar-block{
+    display: flex;
+    flex-direction: row;
+  }
+  .ngx-timepicker-field-example{
+    color: #4a94a1;
+    margin-top: 2px;
   }
   .mat-card-title{
+    margin-top: 2px;
+    color: #4a94a1;
 
   }
